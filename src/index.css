@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --color-bg: 24 12 18;
+    --color-surface: 35 17 26;
+    --color-surface-strong: 48 22 34;
+    --color-surface-deep: 63 28 42;
+    --color-slate: 61 35 46;
+    --color-slate-light: 103 55 72;
+    --color-accent: 255 93 122;
+    --color-accent-dim: 244 63 94;
+    --color-accent-muted: 127 29 45;
+    --color-text: 255 244 247;
+    --color-muted: 190 151 163;
+    --color-border: 83 43 58;
+  }
+
+  :root[data-theme='light'] {
+    color-scheme: light;
+    --color-bg: 255 247 248;
+    --color-surface: 255 255 255;
+    --color-surface-strong: 255 235 239;
+    --color-surface-deep: 254 218 226;
+    --color-slate: 255 228 233;
+    --color-slate-light: 251 182 196;
+    --color-accent: 190 18 60;
+    --color-accent-dim: 159 18 57;
+    --color-accent-muted: 255 205 215;
+    --color-text: 46 16 28;
+    --color-muted: 101 57 71;
+    --color-border: 238 184 197;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  ::selection { background: rgb(var(--color-accent)); color: #0A0F1E; }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--color-bg)); }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--color-slate-light)); border-radius: 2px; }
+}
+
+@layer components {
+  .section-label {
+    @apply font-mono text-mint text-xs tracking-[0.2em] uppercase;
+  }
+
+  .section-title {
+    @apply font-display text-5xl md:text-6xl font-normal text-offwhite leading-tight;
+  }
+
+  .divider {
+    @apply w-full h-px bg-border;
+  }
+
+  .pill {
+    @apply font-mono text-xs px-3 py-1 rounded-full border border-border text-muted;
+  }
+
+  .pill-accent {
+    @apply font-mono text-xs px-3 py-1.5 rounded-full border border-mint/30 text-mint bg-mint/5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 font-sans font-semibold text-sm tracking-wide
+           bg-mint text-[#2e101c] px-6 py-3 rounded-full
+           hover:bg-mint-dim transition-all duration-200
+           shadow-[0_0_20px_rgba(255,93,122,0.18)] hover:shadow-[0_0_30px_rgba(244,63,94,0.32)];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 font-sans font-semibold text-sm tracking-wide
+           border border-border text-offwhite px-6 py-3 rounded-full
+           hover:border-mint/40 hover:text-mint transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-navy-800 border border-border rounded-2xl p-6
+           hover:border-mint/20 transition-all duration-300;
+  }
+
+  .nav-link {
+    @apply font-sans text-sm font-semibold text-muted hover:text-offwhite transition-colors duration-200 tracking-wide;
+  }
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+:root[data-theme='light'] body::before {
+  opacity: 0.18;
+}
+
+/* Glow orb */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Staggered animation helpers */
+.animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
+.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
+.animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+.animate-delay-500 { animation-delay: 0.5s; opacity: 0; }
+.animate-delay-600 { animation-delay: 0.6s; opacity: 0; }
+
+/* Underline hover effect */
+.hover-underline {
+  position: relative;
+}
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: rgb(var(--color-accent));
+  transition: width 0.3s ease;
+}
+.hover-underline:hover::after { width: 100%; }
