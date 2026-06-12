@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const ROLES = ['UI/UX Designer', 'Frontend Developer', 'BSIT Graduate',];
+const ROLES = ['UI/UX Designer', 'Frontend Developer', 'Graphic Designer',];
 
 export default function Hero() {
   const [roleIdx, setRoleIdx] = useState(0);
@@ -52,7 +52,7 @@ export default function Hero() {
             </div>
 
             <h1 className={`font-display text-6xl md:text-7xl lg:text-8xl font-normal text-offwhite leading-[1.05] mb-6 ${cls('delay-200')}`}>
-              Mariane<br />
+              Mariane M. <br />
               <em className="text-mint not-italic">Panaligan</em>
             </h1>
 
@@ -63,7 +63,7 @@ export default function Hero() {
             </div>
 
             <p className={`font-sans font-medium text-muted text-lg leading-relaxed max-w-lg mb-10 ${cls('delay-400')}`}>
-              I craft clean, user-centered digital experiences — bridging the gap between thoughtful design and functional code.
+              Creating user-centered digital experiences through design, development, and continuous learning.
             </p>
 
             <div className={`flex flex-wrap gap-3 ${cls('delay-500')}`}>

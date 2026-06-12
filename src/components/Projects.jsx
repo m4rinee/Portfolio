@@ -8,6 +8,7 @@ const PROJECTS = [
     desc: 'A full-featured mobile application connecting coaches and athletes. Supports workout planning, progress tracking, and real-time communication — built end-to-end as a capstone project.',
     tags: ['React Native', 'TypeScript', 'Expo', 'Supabase'],
     type: 'Mobile Development',
+    image: '/projects/coachme.png',
     link: 'https://www.trainwithcoachme.com/',
     linkLabel: 'Visit Live Site',
     accent: {
@@ -22,6 +23,7 @@ const PROJECTS = [
     desc: 'Comprehensive UX wireframe proposal for a distribution management platform. Covers inventory flows, user dashboards, role-based access screens, and a complete design system proposal.',
     tags: ['Figma', 'UX Research', 'Wireframing', 'Prototyping'],
     type: 'UI/UX Design',
+    image: '/projects/zhiyuan.png',
     link: 'https://www.figma.com/design/8DKKXpJfsYLMTBmoLNewFF/Zhiyuan-DMS-Wire-Frame-Proposal?node-id=0-1&p=f&t=uWRguJkRhE4SRY8X-0',
     linkLabel: 'View Figma File',
     accent: {
@@ -36,6 +38,7 @@ const PROJECTS = [
     desc: 'The goal of the application is to help customers join a waiting list online and allow cafe staff to manage queues efficiently.',
     tags: ['Figma Make', 'UI/UX Design', 'Wireframing', 'Prototyping'],
     type: 'UI/UX Design',
+    image: '/projects/brewqueue.png',
     link: 'https://www.figma.com/community/file/1644666445326917008/cafe-waiting-list',
     linkLabel: 'View Figma File',
     accent: {
@@ -65,10 +68,18 @@ function ProjectCard({ project, index, theme }) {
           <span className="pill">{project.type}</span>
         </div>
 
-        {/* Preview area — abstract graphic */}
+        {/* Preview area — image or abstract graphic fallback */}
         <div className="w-full h-40 rounded-xl mb-6 overflow-hidden relative"
           style={{ background: `linear-gradient(135deg, ${accent}10 0%, transparent 60%)`, border: `1px solid ${accent}25` }}>
-          <div className="absolute inset-0 flex items-center justify-center opacity-30" style={{ color: accent }}>
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={`${project.title} preview`}
+              className="absolute inset-0 w-full h-full object-cover"
+              onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextSibling.style.display = 'flex'; }}
+            />
+          ) : null}
+          <div className="absolute inset-0 flex items-center justify-center opacity-30" style={{ color: accent, display: project.image ? 'none' : 'flex' }}>
             {project.type === 'Mobile Development' ? (
               <svg viewBox="0 0 120 80" className="w-32 h-24" fill="none">
                 <rect x="40" y="5" width="40" height="70" rx="6" stroke="currentColor" strokeWidth="1.5"/>
@@ -90,11 +101,13 @@ function ProjectCard({ project, index, theme }) {
               </svg>
             )}
           </div>
-          <div className="absolute bottom-3 right-3">
-            <span className="font-mono text-[10px] tracking-widest" style={{ color: accent }}>
-              {project.tags[0]}
-            </span>
-          </div>
+          {!project.image && (
+            <div className="absolute bottom-3 right-3">
+              <span className="font-mono text-[10px] tracking-widest" style={{ color: accent }}>
+                {project.tags[0]}
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="flex-1">

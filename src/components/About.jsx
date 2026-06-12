@@ -19,15 +19,15 @@ export default function About() {
 
               <div className="space-y-4 font-sans font-medium text-muted text-base leading-relaxed">
                 <p>
-                  I'm an IT student and aspiring frontend developer passionate about building interfaces that are both beautiful and intuitive. I believe great digital products live at the intersection of design thinking and technical execution.
+                  I've always been the person who volunteered to handle the creative side of projects. Designing presentations, creating digital materials, and experimenting with layouts were things I genuinely enjoyed doing long before I started coding.
                 </p>
                 <p>
-                  With a background in UI/UX and graphic design, I bring a designer's eye to every line of code — crafting experiences that users genuinely enjoy.
+                  Whether I'm designing in Figma or building interfaces with React, I enjoy transforming ideas into experiences that feel intuitive, purposeful, and enjoyable to use. I'm constantly looking for opportunities to learn, improve, and create work that makes an impact.
                 </p>
               </div>
 
               <div className="mt-8 flex flex-wrap gap-2">
-                {['UI/UX Designer', 'Frontend Developer', 'Graphic Designer', 'IT Student'].map(t => (
+                {['UI/UX Designer', 'Frontend Developer', 'Graphic Designer', 'Problem Solver', 'Continuous Learner', 'Team Player'].map(t => (
                   <span key={t} className="pill-accent">{t}</span>
                 ))}
               </div>
@@ -39,17 +39,17 @@ export default function About() {
                 {
                   year: '2025',
                   title: 'Capstone — CoachMe',
-                  desc: 'Built a full fitness coaching mobile app with React Native, TypeScript, Expo & Supabase.',
+                  desc: 'Developed a fitness coaching mobile application designed to help trainers manage clients, track progress, and create personalized workout plans.',
                 },
                 {
                   year: '2026',
-                  title: 'UX Work — Zhiyuan DMS',
-                  desc: 'Designed end-to-end wireframes for a distribution management system in Figma.',
+                  title: 'Frontend Developer Intern — Zhiyuan DMS',
+                  desc: 'Contributed to the design and development of a Distributor Management System, creating wireframes, prototypes, and frontend interfaces while collaborating closely with project leads and team members.',
                 },
                 {
                   year: 'Present',
-                  title: 'Studying IT & Frontend',
-                  desc: 'Deepening expertise in React, TypeScript, and user-centered design principles.',
+                  title: 'Frontend Development Journey',
+                  desc: 'Continuously building projects, exploring UI/UX design, and expanding my frontend development skills through hands-on learning and real-world experience.',
                 },
               ].map((item, i) => (
                 <div key={i} className="flex gap-5 group">

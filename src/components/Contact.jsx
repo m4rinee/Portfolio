@@ -138,7 +138,7 @@ export default function Contact() {
 
       {/* Footer */}
       <div className="mt-24 border-t border-border pt-8 max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <span className="font-display text-lg font-medium text-muted">Mariane Panaligan</span>
+        <span className="font-display text-lg font-medium text-muted">Mariane M. Panaligan</span>
         <p className="font-mono text-xs text-muted/50">
           © 2026 · Built with React, Vite & Tailwind CSS
         </p>

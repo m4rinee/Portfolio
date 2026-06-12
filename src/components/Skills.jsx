@@ -7,19 +7,14 @@ const CATEGORIES = [
     skills: ['HTML5', 'CSS3', 'JavaScript', 'React.js', 'Vue.js', 'Tailwind CSS', 'TypeScript'],
   },
   {
-    label: 'Mobile',
-    icon: '📱',
-    skills: ['React Native', 'Expo', 'TypeScript'],
-  },
-  {
     label: 'Design',
     icon: '✦',
-    skills: ['Figma', 'Adobe XD', 'UI/UX Design', 'Wireframing', 'Prototyping', 'Graphic Design'],
+    skills: ['Figma', 'Canva', 'Wireframing', 'Prototyping', 'Graphic Design'],
   },
   {
     label: 'Tools & Dev',
     icon: '⚙',
-    skills: ['Git & GitHub', 'Supabase', 'Responsive Web Design', 'Version Control'],
+    skills: ['Git & GitHub', 'Supabase', 'Responsive Web Design', 'VS Code', ],
   },
 ];
 
